@@ -1,0 +1,367 @@
+/* ============================================================
+   CREATOR UNIVERSE — Dark Commerce Premium
+   Palette: Near-black bg + Vibrant Orange accent
+   Fonts: Bebas Neue (display) + DM Sans (body) + DM Mono (prices)
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+}
+
+:root {
+  /* Brand Orange — Naranja Crew */
+  --brand: oklch(0.72 0.19 45);
+  --brand-foreground: oklch(0.10 0.005 45);
+
+  /* Dark background system */
+  --background: oklch(0.10 0.005 260);
+  --foreground: oklch(0.96 0.005 80);
+
+  /* Surface layers */
+  --surface: oklch(0.14 0.006 260);
+  --surface-elevated: oklch(0.18 0.007 260);
+
+  /* Cards */
+  --card: oklch(0.14 0.006 260);
+  --card-foreground: oklch(0.96 0.005 80);
+
+  /* Popovers */
+  --popover: oklch(0.16 0.007 260);
+  --popover-foreground: oklch(0.96 0.005 80);
+
+  /* Primary = Brand Orange */
+  --primary: oklch(0.72 0.19 45);
+  --primary-foreground: oklch(0.10 0.005 45);
+
+  /* Secondary = Dark surface */
+  --secondary: oklch(0.20 0.008 260);
+  --secondary-foreground: oklch(0.80 0.005 80);
+
+  /* Muted */
+  --muted: oklch(0.20 0.006 260);
+  --muted-foreground: oklch(0.55 0.01 260);
+
+  /* Accent = subtle orange tint */
+  --accent: oklch(0.20 0.015 45);
+  --accent-foreground: oklch(0.72 0.19 45);
+
+  /* Destructive */
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Borders */
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.19 45);
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Chart colors */
+  --chart-1: oklch(0.72 0.19 45);
+  --chart-2: oklch(0.65 0.15 45);
+  --chart-3: oklch(0.55 0.12 45);
+  --chart-4: oklch(0.45 0.09 45);
+  --chart-5: oklch(0.35 0.06 45);
+
+  /* Sidebar */
+  --sidebar: oklch(0.12 0.005 260);
+  --sidebar-foreground: oklch(0.96 0.005 80);
+  --sidebar-primary: oklch(0.72 0.19 45);
+  --sidebar-primary-foreground: oklch(0.10 0.005 45);
+  --sidebar-accent: oklch(0.20 0.008 260);
+  --sidebar-accent-foreground: oklch(0.96 0.005 80);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.72 0.19 45);
+
+  /* Custom easing */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* No dark variant needed — this IS the dark theme */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .price, .mono {
+    font-family: 'DM Mono', monospace;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.12 0.005 260);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.30 0.01 260);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.72 0.19 45);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Brand button */
+  .btn-brand {
+    @apply bg-primary text-primary-foreground font-bold uppercase tracking-widest;
+    @apply px-8 py-3 transition-all duration-150;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-brand:hover {
+    @apply brightness-110;
+  }
+  .btn-brand:active {
+    transform: scale(0.97);
+  }
+
+  /* Orange accent line */
+  .accent-line {
+    @apply h-0.5 bg-primary;
+  }
+
+  /* Product card hover */
+  .product-card {
+    @apply bg-card border border-border rounded-lg overflow-hidden;
+    @apply transition-all duration-200;
+  }
+  .product-card:hover {
+    @apply border-primary/40;
+    box-shadow: 0 0 0 1px oklch(0.72 0.19 45 / 0.2), 0 8px 32px oklch(0 0 0 / 0.4);
+  }
+
+  /* Badge */
+  .badge-new {
+    @apply bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .badge-sold-out {
+    @apply bg-destructive text-destructive-foreground text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Input dark style */
+  .input-dark {
+    @apply bg-surface border border-border text-foreground placeholder:text-muted-foreground;
+    @apply focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none;
+    @apply transition-colors duration-150 rounded-md px-4 py-3;
+  }
+  .input-dark.error {
+    @apply border-destructive ring-1 ring-destructive/50;
+  }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes badgeBounce {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.4); }
+  60% { transform: scale(0.9); }
+}
+
+@keyframes numberFlip {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-8px); opacity: 0; }
+  51% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes spinnerSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s var(--ease-out) both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s var(--ease-out) both;
+}
+
+.animate-slide-out-right {
+  animation: slideOutRight 0.25s var(--ease-in-out) both;
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeft 0.25s var(--ease-out) both;
+}
+
+.animate-badge-bounce {
+  animation: badgeBounce 0.4s var(--ease-out);
+}
+
+.animate-number-flip {
+  animation: numberFlip 0.3s var(--ease-in-out);
+}
+
+.animate-check-pop {
+  animation: checkPop 0.3s var(--ease-out) both;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, oklch(0.14 0.006 260) 25%, oklch(0.20 0.008 260) 50%, oklch(0.14 0.006 260) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 60ms; }
+.stagger-3 { animation-delay: 120ms; }
+.stagger-4 { animation-delay: 180ms; }
+.stagger-5 { animation-delay: 240ms; }
+.stagger-6 { animation-delay: 300ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
