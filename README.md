@@ -9,7 +9,7 @@ administrativo para gestionar pedidos e inventario.
 ## 🛍️ Demo
 
 Puedes explorar la tienda desde el siguiente enlace:  
-🔗 *[Demo en vivo](#)* ← *(reemplaza con tu URL de Vercel/Netlify)*
+🔗 *[Demo en vivo](https://merch-store-sigma.vercel.app/)* 
 
 ---
 
